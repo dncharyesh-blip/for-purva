@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Purva — From Haryesh</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 1.5s ease;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+p {
+  max-width: 800px;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  opacity: 0.95;
+}
+
+button {
+  margin-top: 40px;
+  padding: 14px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 120, 150, 0.4);
+}
+
+.hidden {
+  display: none;
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin-top: 30px;
+}
+
+.photos img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: transform 0.4s ease;
+}
+
+.photos img:hover {
+  transform: scale(1.04);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  color: rgba(255, 120, 150, 0.6);
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<section id="page1">
+  <h1>Purva, this is from my heart</h1>
+  <p>
+    I am deeply sorry for hurting you. I know my actions, even when unintentional,
+    have caused you pain. Falling asleep while talking to you may seem small to me,
+    but I understand now how it made you feel ignored and unimportant.
+    <br><br>
+    That was never my intention. You mean more to me than I am able to express in words.
+    I love you truly, deeply, and sincerely. I cannot imagine my life without you,
+    Purva. Losing you is something my heart cannot accept.
+    <br><br>
+    Please forgive me. I promise to do better, to be more present, and to value
+    every moment we share. You deserve that, and so much more.
+    <br><br>
+    — Haryesh
+  </p>
+  <button onclick="nextPage(2)">Please continue</button>
+</section>
+
+<section id="page2" class="hidden">
+  <h1>This is you, Purva</h1>
+  <p>
+    Every smile of yours calms my chaos. Every expression of yours feels like home.
+    You are warmth, patience, strength, and beauty all in one soul.
+    <br><br>
+    I cannot live without you, Purva. My world feels incomplete without your presence.
+  </p>
+
+  <div class="photos">
+    <img src="IMG_20260124_025956_402.jpg" alt="Purva">
+    <img src="IMG_20260124_025516_795.jpg" alt="Purva">
+    <img src="88419d4b-2f8b-44b3-846a-f8182814e6ef.jpg" alt="Purva">
+    <img src="WIN_20260204_01_47_13_Pro.jpg" alt="Purva">
+  </div>
+
+  <button onclick="nextPage(3)">One last thing</button>
+</section>
+
+<section id="page3" class="hidden">
+  <h1>This song is for you</h1>
+  <p>
+    This song carries everything I struggle to say out loud.
+    Please listen to it and know that every word, every note,
+    comes from my heart to yours.
+  </p>
+  <button onclick="openSong()">Press here for the song</button>
+</section>
+
+<script>
+function nextPage(page) {
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page2").classList.add("hidden");
+  document.getElementById("page3").classList.add("hidden");
+  document.getElementById("page" + page).classList.remove("hidden");
+}
+
+function openSong() {
+  window.location.href = "https://youtu.be/fukGbiPuBjU?si=W31WuhixascUNSAA";
+}
+
+// Floating hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  heart.innerHTML = "❤";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 400);
+</script>
+
+</body>
+</html>
